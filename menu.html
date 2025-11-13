@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brew Italiano | Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f7f5;
+      color: #333;
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+
+    header h1, header h2 {
+      z-index: 2;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 50px;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    header h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 26px;
+      color: #d6b26e;
+      margin-top: 10px;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 60px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      padding: 40px 50px;
+    }
+
+    h3 {
+      font-size: 26px;
+      color: #3b2e2a;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #d6b26e;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding: 14px 0;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-name {
+      font-weight: 600;
+      font-size: 17px;
+      color: #2d2d2d;
+    }
+
+    .item-desc {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .item-price {
+      color: #b8924a;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 10px;
+      background: #2d2d2d;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    footer a { color: #d6b26e; text-decoration: none; }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 36px; }
+      section { padding: 30px 25px; }
+      .menu-item { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Brew Italiano</h1>
+    <h2>Modern Taste. Italian Soul.</h2>
+  </header>
+
+  <section>
+    <h3>Signature Coffees</h3>
+    <div class="menu-item"><div><div class="item-name">Espresso Classico</div><div class="item-desc">Bold Italian roast — small, intense, timeless.</div></div><div class="item-price">₹220</div></div>
+    <div class="menu-item"><div><div class="item-name">Cappuccino Milano</div><div class="item-desc">Classic espresso with rich froth and cocoa dust.</div></div><div class="item-price">₹260</div></div>
+    <div class="menu-item"><div><div class="item-name">Latte Venezia</div><div class="item-desc">Smooth, creamy blend inspired by Venice mornings.</div></div><div class="item-price">₹270</div></div>
+    <div class="menu-item"><div><div class="item-name">Caffè Mocha Royale</div><div class="item-desc">Espresso, Belgian chocolate, and cream swirl.</div></div><div class="item-price">₹310</div></div>
+    <div class="menu-item"><div><div class="item-name">Affogato al Caffè</div><div class="item-desc">Vanilla gelato drowned in hot espresso.</div></div><div class="item-price">₹350</div></div>
+    <div class="menu-item"><div><div class="item-name">Signature Blend</div><div class="item-desc">Secret golden roast with caramel crema & spice.</div></div><div class="item-price">₹360</div></div>
+  </section>
+
+  <section>
+    <h3>Dolci & Gourmet Bites</h3>
+    <div class="menu-item"><div><div class="item-name">Tiramisu Tradizionale</div><div class="item-desc">Espresso-soaked layers with mascarpone & cocoa.</div></div><div class="item-price">₹420</div></div>
+    <div class="menu-item"><div><div class="item-name">Cannoli Siciliani</div><div class="item-desc">Hand-rolled pastry filled with sweet ricotta & zest.</div></div><div class="item-price">₹390</div></div>
+    <div class="menu-item"><div><div class="item-name">Croissant al Burro</div><div class="item-desc">French butter croissant, served warm.</div></div><div class="item-price">₹210</div></div>
+    <div class="menu-item"><div><div class="item-name">Panna Cotta alla Vaniglia</div><div class="item-desc">Creamy vanilla custard with berry compote.</div></div><div class="item-price">₹360</div></div>
+    <div class="menu-item"><div><div class="item-name">Nutella Bombolini</div><div class="item-desc">Italian doughnuts filled with warm hazelnut chocolate.</div></div><div class="item-price">₹320</div></div>
+  </section>
+
+  <section>
+    <h3>Signature Mocktails</h3>
+    <div class="menu-item"><div><div class="item-name">Italian Sunset</div><div class="item-desc">Orange, pomegranate & prosecco-style fizz.</div></div><div class="item-price">₹270</div></div>
+    <div class="menu-item"><div><div class="item-name">Limonata Frizzante</div><div class="item-desc">Sparkling Sicilian lemon with basil honey.</div></div><div class="item-price">₹260</div></div>
+    <div class="menu-item"><div><div class="item-name">Berry Spritz Royale</div><div class="item-desc">Berries, mint & soda — summer in a glass.</div></div><div class="item-price">₹280</div></div>
+    <div class="menu-item"><div><div class="item-name">Rosemary Citrus Cooler</div><div class="item-desc">Tangy orange-lime with fresh rosemary.</div></div><div class="item-price">₹290</div></div>
+    <div class="menu-item"><div><div class="item-name">Espresso Martini (Virgin)</div><div class="item-desc">Espresso, vanilla & tonic — bold yet graceful.</div></div><div class="item-price">₹300</div></div>
+  </section>
+
+  <footer>
+    <p>Via di Caffè, South Mumbai – 400021<br>
+    📞 +91-99229-XXXX | 🌐 <a href="#">brewitaliano.in</a><br>
+    “Sip. Savor. Stay Italian.”</p>
+  </footer>
+</body>
+</html>

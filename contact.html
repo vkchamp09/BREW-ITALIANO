@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brew Italiano | Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #faf8f5;
+      color: #333;
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #fff;
+      text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    header h1, header h2 {
+      z-index: 2;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 50px;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    header h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 26px;
+      color: #d6b26e;
+      margin-top: 10px;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 40px 50px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .contact-info, .contact-form {
+      flex: 1 1 400px;
+    }
+
+    .contact-info h3, .contact-form h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #3b2e2a;
+      border-bottom: 2px solid #d6b26e;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+      color: #555;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      outline: none;
+      transition: border 0.3s ease;
+    }
+
+    form input:focus, form textarea:focus {
+      border-color: #d6b26e;
+    }
+
+    form textarea { resize: none; height: 120px; }
+
+    button {
+      background: #d6b26e;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #b8924a;
+      transform: translateY(-2px);
+    }
+
+    .qr-section {
+      text-align: center;
+      margin: 60px auto 80px;
+      max-width: 800px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .qr-section h3 {
+      font-size: 24px;
+      color: #3b2e2a;
+      margin-bottom: 10px;
+    }
+
+    .qr-section p {
+      color: #555;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .qr-section img {
+      width: 200px;
+      border: 3px solid #d6b26e;
+      border-radius: 10px;
+      margin: 15px auto;
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 10px;
+      background: #2d2d2d;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    footer a { color: #d6b26e; text-decoration: none; }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 36px; }
+      main { padding: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Contact Us</h1>
+    <h2>Let’s Brew a Conversation ☕</h2>
+  </header>
+
+  <main>
+    <div class="contact-info">
+      <h3>Our Café</h3>
+      <p>📍 Via di Caffè, South Mumbai – 400021</p>
+      <p>📞 +91-99229-XXXX</p>
+      <p>✉️ contact@brewitaliano.in</p>
+      <p>🕓 Mon–Sun: 8:00 AM – 11:00 PM</p>
+    </div>
+
+    <div class="contact-form">
+      <h3>Send us a Message</h3>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message..." required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </main>
+
+  <section class="qr-section">
+    <h3>📱 Scan to View Our Menu</h3>
+    <p>Use your phone camera or scan below to explore our digital menu.</p>
+    <img src="brewitaliano_menu_qr.png" alt="Brew Italiano Menu QR Code">
+  </section>
+
+  <footer>
+    <p>© 2025 Brew Italiano | <a href="menu.html">View Menu</a> | <a href="index.html">Home</a></p>
+  </footer>
+
+</body>
+</html>
