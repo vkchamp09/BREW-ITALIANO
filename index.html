@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BREW ITALIANO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 20px 60px;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 40px;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #d6b26e;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 4;
+    }
+
+    .hero-content h1 {
+      font-size: 50px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .hero-content h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #d6b26e;
+    }
+
+    /* ARROWS */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 40px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.4);
+      border: none;
+      cursor: pointer;
+      z-index: 5;
+      padding: 10px 18px;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    .arrow:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .prev { left: 25px; }
+    .next { right: 25px; }
+
+    /* DOTS */
+    .dots {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 5;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .dot.active {
+      background: #d6b26e;
+    }
+
+    /* MENU SECTION */
+    .menu-section {
+      text-align: center;
+      padding: 80px 40px 40px;
+      background: linear-gradient(to bottom, #fff, #faf8f5);
+    }
+
+    .menu-section h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #2d2d2d;
+    }
+
+    .divider {
+      width: 50px;
+      height: 2px;
+      background: #d6b26e;
+      margin: 15px auto;
+    }
+
+    .menu-section p {
+      font-size: 15px;
+      color: #555;
+      max-width: 600px;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+
+    .view-menu-btn {
+      margin-top: 25px;
+      padding: 12px 36px;
+      background-color: #d6b26e;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .view-menu-btn:hover {
+      background-color: #b8924a;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    /* STORY SECTION */
+    .story {
+      background-color: #fff;
+      text-align: center;
+      padding: 60px 10% 100px;
+      margin-top: -40px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+      border-top: 1px solid #f1f1f1;
+    }
+
+    .story.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .story h2 {
+      font-size: 36px;
+      color: #2d2d2d;
+      margin-bottom: 10px;
+    }
+
+    .story p {
+      color: #555;
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 20px auto 30px;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #b8924a;
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .story img {
+      width: 140px;
+      border-radius: 50%;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    /* GALLERY */
+    .gallery {
+      padding: 80px 10%;
+      background-color: #faf8f5;
+      text-align: center;
+    }
+
+    .gallery h2 {
+      font-size: 36px;
+      color: #2d2d2d;
+      margin-bottom: 20px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+      .hero-content h1 {
+        font-size: 36px;
+      }
+      .hero-content h2 {
+        font-size: 22px;
+      }
+      .gallery-grid img {
+        height: 240px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#">HOME</a>
+    <a href="#story">ABOUT US</a>
+    <a href="#gallery">GALLERY</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1500&q=80');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1523942839745-7848d4e832b3?auto=format&fit=crop&w=1500&q=80');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1500&q=80');"></div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1>BREW ITALIANO</h1>
+      <h2>Modern Taste. Italian Soul.</h2>
+    </div>
+
+    <button class="arrow prev">&#10094;</button>
+    <button class="arrow next">&#10095;</button>
+
+    <div class="dots"></div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section class="menu-section">
+    <h2>EXPLORE OUR MENU</h2>
+    <div class="divider"></div>
+    <p>It’s The Ultimate Coffee Experience!  
+    Here at Brew Italiano, we bring the soul of Italy in every sip... because great coffee isn’t made — it’s brewed with passion.</p>
+    <a href="menu.html"><button class="view-menu-btn">VIEW MENU</button></a>
+  </section>
+
+  <!-- STORY SECTION -->
+  <section class="story" id="story">
+    <h2>Our Story</h2>
+    <div class="divider"></div>
+    <p>From the highlands of Colombia to the heart of Mumbai, our journey began with one dream — to create a space where coffee lovers could experience the true essence of Italy. Every bean we brew carries stories of sunlit farms, rich soil, and the warmth of people who nurture every roast with love.</p>
+    <p class="quote">“Brewed with love, served with passion.”</p>
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=500&q=80" alt="Coffee Beans">
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section class="gallery" id="gallery">
+    <h2>Gallery</h2>
+    <div class="divider"></div>
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80" alt="Coffee Cup">
+      <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Barista Art">
+      <img src="https://watermark.lovepik.com/photo/20211121/large/lovepik-coffee-bean-picture_500651963.jpg" alt="Coffee Beans">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Cafe Interior">
+    </div>
+  </section>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    const dotsContainer = document.querySelector('.dots');
+    let current = 0;
+    let interval;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dotsContainer.appendChild(dot);
+      dot.addEventListener('click', () => goToSlide(i));
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+      slides.forEach((s, i) => {
+        s.classList.remove('active');
+        dots[i].classList.remove('active');
+      });
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+
+    function goToSlide(index) {
+      current = index;
+      showSlide(index);
+      resetInterval();
+    }
+
+    function startInterval() {
+      interval = setInterval(nextSlide, 5000);
+    }
+
+    function resetInterval() {
+      clearInterval(interval);
+      startInterval();
+    }
+
+    prev.addEventListener('click', () => {
+      prevSlide();
+      resetInterval();
+    });
+
+    next.addEventListener('click', () => {
+      nextSlide();
+      resetInterval();
+    });
+
+    // Preload images
+    slides.forEach(slide => {
+      const img = new Image();
+      const bg = slide.style.backgroundImage.replace(/url\("|"\)/g, '');
+      img.src = bg;
+    });
+
+    startInterval();
+
+    // Story section fade-in
+    const storySection = document.querySelector('.story');
+    window.addEventListener('scroll', () => {
+      const rect = storySection.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        storySection.classList.add('visible');
+      }
+    });
+  </script>
+</body>
+</html>
